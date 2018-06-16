@@ -1,0 +1,45 @@
+<html>
+<head>
+<title>Random Rubik's Cube</title>
+<script language="javascript">
+
+function random(n)
+{
+    return Math.trunc(n * Math.random());
+}
+
+function random_select(s)
+{
+    return s[random(s.length)];
+}
+
+function gen_random_op()
+{
+    var op1 = " -",
+        op2 = "UDLRFB";
+    var s = "<pre>";
+    for (var j = 0; j != 10; ++j) {
+        var s1 = "";
+        for (var i = 0; i != 4; ++i) {
+            var s2 = random_select(op1) + random_select(op2);
+            s1 += s2;
+        }
+        s += s1 + "<br />";
+    }
+    s += "</pre>"
+    return s;
+}
+
+function init()
+{
+    var s = gen_random_op();
+    document.write(s);
+}
+
+</script>
+</head>
+<body onload="init()">
+    <div>
+    </div>
+</body>
+</html>
